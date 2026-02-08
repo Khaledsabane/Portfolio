@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Créer des outils et applications R&T</title>
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/loader.js" defer></script>
+
+</head>
+
+<body>
+  <!-- ================= LOADER ================= -->
+<div id="page-loader">
+  <div class="loader-content">
+    <span class="loader-text">LOADING</span>
+    <div class="loader-bar">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
+<header class="main-header">
+  <nav class="main-nav">
+    <span class="nav-logo">KHALED_SABANE</span>
+    <ul class="nav-menu">
+      <li><a href="index.html" >About me</a></li>
+      <li><a href="admin-si-securise.html">Administrer un SI sécurisé</a></li>
+      <li><a href="admin-reseaux-internet.html">Administrer les réseaux et internet</a></li>
+      <li><a href="surveillance-si.html">Surveillance SI</a></li>
+      <li><a href="dev-outils-rt.html" class="active">Créer des outils et applications informatique</a></li>
+      <li><a href="connecter-entreprises.html">Connecter les entreprises et les usagers</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container section">
+
+  <h1>Créer des outils et applications R&amp;T</h1>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===================================================== -->
+  <!-- SAE 3.02 -->
+  <article class="project-block">
+
+    <h2>SAE 3.02 – Développer des applications communicantes</h2>
+
+    <p>
+      Dans le cadre de cette SAE, j'ai conçu et développé une architecture distribuée multi-serveurs
+      permettant de compiler et d'exécuter à distance des programmes envoyés par des clients.
+      Le but était de garantir une exécution fluide, même en cas de forte charge, tout en permettant
+      à plusieurs utilisateurs d’interagir en même temps avec le système.
+    </p>
+
+    <p>
+      Ce projet m’a permis de travailler sur des notions avancées comme la répartition de charge
+      (load balancing), la communication réseau via sockets, la gestion de processus et la scalabilité.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE302-1.png" alt="Architecture distribuée multi-serveurs">
+      <figcaption>Architecture distribuée multi-serveurs</figcaption>
+    </figure>
+
+    <p>
+      J’ai développé un système organisé autour d’un serveur maître qui reçoit les requêtes des clients.
+      Lorsque la charge est trop élevée, il peut déléguer l’exécution des programmes à des serveurs
+      secondaires. Le client reçoit ensuite le résultat via le serveur principal.
+    </p>
+
+    <h3>Fonctionnalités principales</h3>
+    <ul>
+      <li>Le client dispose d’une interface graphique qui permet d’envoyer un programme (en Python ou en C) à un serveur distant.</li>
+      <li>Le serveur reçoit le programme, le compile (si nécessaire) et l’exécute.</li>
+      <li>Le résultat ou les erreurs sont renvoyés au client.</li>
+      <li>Plusieurs clients peuvent se connecter et envoyer des programmes en même temps.</li>
+      <li>Si un serveur est surchargé, la tâche est automatiquement transférée à un autre serveur.</li>
+    </ul>
+
+    <h3>Interface client</h3>
+    <p>
+      J’ai développé une interface graphique simple et intuitive qui permet à l’utilisateur :
+    </p>
+
+    <ul>
+      <li>De sélectionner un fichier à envoyer ;</li>
+      <li>D'entrer l’adresse IP et le port du serveur ;</li>
+      <li>De visualiser un compteur de temps et le résultat de l’exécution.</li>
+    </ul>
+
+    <figure>
+      <img src="assets/images/SAE302-2.png" alt="Interface graphique client SAE 3.02">
+      <figcaption>Interface graphique du client</figcaption>
+    </figure>
+
+    <h3>Livrables réalisés</h3>
+    <ul>
+      <li>Le code source complet (client, serveur maître et secondaires)</li>
+      <li>Une documentation d’installation claire</li>
+      <li>Un rapport final détaillant mes choix d’architecture</li>
+      <li>Une vidéo de démonstration montrant plusieurs clients connectés</li>
+    </ul>
+
+    <p class="project-links">
+      <a href="https://github.com/Khaledsabane/-Programmation-de-2-me-ann-e-R3.08-R3.09-et-SAE3.02.git" target="_blank">
+        Lien GitHub du projet
+      </a>
+      •
+      <a href="https://youtu.be/lT3sJrDrkBk" target="_blank">
+        Lien de la vidéo de démonstration
+      </a>
+    </p>
+
+  </article>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===================================================== -->
+  <!-- Projet ENSISA -->
+  <article class="project-block">
+
+    <h2>Projet d’immersion ENSISA – Jeu multijoueur en C</h2>
+
+    <h3>Contexte académique</h3>
+    <p>
+      Ce projet a été réalisé dans le cadre d’un projet d’immersion à l’ENSISA
+      (École Nationale Supérieure d’Ingénieurs Sud-Alsace), dans le cadre d’un partenariat
+      pédagogique entre l’IUT de Colmar et l’ENSISA.
+      Il visait à nous confronter à une approche proche du cycle ingénieur,
+      combinant développement logiciel et programmation réseau.
+    </p>
+
+    <figure>
+      <img src="assets/images/ENSISA-1.png" alt="Jeu multijoueur ENSISA">
+      <figcaption>Projet d’immersion ENSISA – Jeu multijoueur en C</figcaption>
+    </figure>
+
+    <h3>Architecture générale du jeu</h3>
+    <p>
+      Le jeu repose sur une architecture client-serveur développée en langage C,
+      permettant la gestion de parties multijoueurs, la synchronisation des états de jeu
+      et la séparation entre logique applicative et communication réseau.
+    </p>
+
+    <h3>Logique de jeu</h3>
+    <p>
+      J’ai conçu et implémenté la logique de jeu dans son ensemble, incluant les règles,
+      la gestion des états, les transitions entre les différentes phases et la validation
+      des actions afin de garantir la cohérence globale, notamment dans un contexte multijoueur.
+    </p>
+
+    <h3>Intelligence artificielle</h3>
+    <p>
+      Une intelligence artificielle a été intégrée afin de permettre des parties en mode solo ou mixte.
+      Elle repose sur une logique décisionnelle basée sur l’état courant du jeu et des règles prédéfinies.
+    </p>
+
+    <h3>Communication réseau</h3>
+    <p>
+      La partie réseau s’appuie sur une communication via sockets entre clients et serveur.
+      Les actions des joueurs sont transmises au serveur, qui centralise l’état du jeu,
+      valide les actions et redistribue les mises à jour afin d’assurer la synchronisation des joueurs.
+    </p>
+
+    <h3>Gestion des états et synchronisation</h3>
+    <p>
+      L’état du jeu est centralisé côté serveur afin d’éviter les désynchronisations.
+      Cette approche permet de garantir la cohérence des parties et se rapproche des architectures
+      utilisées dans les systèmes distribués.
+    </p>
+
+    <h3>Contraintes techniques et bonnes pratiques</h3>
+    <p>
+      Le développement en C m’a amené à travailler avec la gestion manuelle de la mémoire,
+      la structuration du code pour en assurer la lisibilité et la maintenabilité,
+      ainsi qu’une démarche de tests progressifs.
+    </p>
+
+    <h3>Compétences mobilisées</h3>
+    <ul>
+      <li>Programmation bas niveau en C</li>
+      <li>Architecture client-serveur</li>
+      <li>Programmation réseau (sockets)</li>
+      <li>Gestion des états et synchronisation</li>
+      <li>Raisonnement algorithmique</li>
+    </ul>
+
+    <p class="project-links">
+      <a href="https://github.com/Khaledsabane/Projet-immersion" target="_blank">
+        Dépôt GitHub
+      </a>
+    </p>
+
+  </article>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===================================================== -->
+  <!-- SAE 5.01 -->
+  <article class="project-block">
+
+    <h2>SAE 5.01 – Traçage de véhicule GNSS via LoRaWAN</h2>
+
+    <p>
+      Dans le cadre de cette SAE, j’ai travaillé sur la mise en œuvre d’un système IoT
+      de suivi de véhicule, basé sur des cartes Pycom et reposant sur la transmission
+      de données GNSS vers un serveur distant.
+      L’objectif principal était de collecter, transmettre et visualiser des données
+      de géolocalisation tout en respectant les contraintes énergétiques propres aux systèmes embarqués.
+    </p>
+
+    <p>
+      Ce projet m’a permis de consolider mes compétences en systèmes embarqués,
+      en réseaux IoT, ainsi qu’en chaînes de traitement de données temps réel,
+      depuis le capteur jusqu’à l’interface de supervision.
+    </p>
+
+   
+
+    <h3>Architecture du système</h3>
+    <p>
+      Le système est organisé autour d’un End Device Pycom (FiPy/LoPy) associé à une carte Pytrack,
+      permettant l’acquisition des coordonnées GNSS.
+      Les données collectées sont transmises via le réseau LoRaWAN vers une application
+      hébergée sur The Things Network (TTN).
+    </p>
+
+    <p>
+      Côté serveur, les messages sont récupérés via le protocole MQTT et traités par un flux Node-RED,
+      déployé sur un Raspberry Pi, afin d’assurer la visualisation de la position du véhicule
+      sur une interface cartographique web.
+    </p>
+
+    <p>
+      L’architecture a été conçue pour limiter la consommation énergétique,
+      le dispositif fonctionnant par défaut en mode basse consommation,
+      avec activation du GNSS et de la communication uniquement lorsque le véhicule est en mouvement,
+      grâce à l’utilisation de l’accéléromètre de la carte Pytrack.
+    </p>
+
+    <h3>Fonctionnalités principales</h3>
+    <ul>
+      <li>Acquisition des coordonnées GNSS via la carte Pytrack</li>
+      <li>Transmission des données via LoRaWAN (TTN)</li>
+      <li>Utilisation du protocole MQTT pour l’acheminement des messages</li>
+      <li>Formatage des données côté serveur (JSON)</li>
+      <li>Visualisation des positions sur une carte via Node-RED</li>
+      <li>Optimisation des données transmises afin de réduire la charge réseau</li>
+      <li>Gestion de la consommation énergétique (modes sleep / deep sleep)</li>
+      <li>Interaction avec le dispositif via des messages descendants (downlink)</li>
+    </ul>
+
+    <h3>Interface de supervision</h3>
+    <p>
+      Une interface web a été mise en place afin de permettre à l’utilisateur de :
+    </p>
+    <ul>
+      <li>Visualiser la position du véhicule sur une carte</li>
+      <li>Suivre l’évolution des données GNSS transmises</li>
+      <li>Interagir avec le dispositif à distance (activation ou arrêt du suivi)</li>
+    </ul>
+
+    <h3>Compétences techniques mobilisées</h3>
+    <ul>
+      <li>Systèmes embarqués (Pycom, Pytrack)</li>
+      <li>Réseaux IoT et LPWAN (LoRaWAN)</li>
+      <li>Protocoles de communication (MQTT)</li>
+      <li>Traitement et formatage de données</li>
+      <li>Supervision et visualisation avec Node-RED</li>
+      <li>Conception d’architectures IoT sobres en énergie</li>
+    </ul>
+
+  </article>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ===================================================== -->
+  <!-- SAE 23 -->
+  <article class="project-block">
+
+    <h2>SAE 23 – Mettre en place une solution informatique pour l’entreprise</h2>
+
+    <h3>1. Projet</h3>
+    <p>
+      Nous avons comme sujet le projet d’un site web de gestion d'un Drive.
+      C’est une application web à travers laquelle on peut créer des commandes.
+      Le site interagit avec une base de données contenant les entités suivantes :
+      catégorie, produits, clients, commandes et listes de produits d'une commande.
+    </p>
+
+    <p>
+      Nous avons spécifié un comportement CRUD (Create, Read, Update, Delete)
+      pour chacune des entités.
+      On peut également ajouter de nouveaux produits en important un fichier CSV
+      et produire des fiches de commande au format PDF.
+    </p>
+    <figure>
+      <img src="assets/images/SAE23.png" alt="Jeu multijoueur ENSISA">
+      <figcaption>Site Web</figcaption>
+    </figure>
+
+    <h3>2. Les compétences développées</h3>
+    <p>
+      Pendant ce projet, j'ai acquis de nombreuses compétences.
+      Parmi elles, l'utilisation de GitHub pour le suivi des versions et la collaboration
+      sur le code a été une compétence clé, permettant de gérer les modifications de code
+      et de travailler efficacement en équipe.
+    </p>
+
+    <p>
+      J'ai appris à utiliser les branches sur GitHub pour gérer le développement parallèle
+      et faciliter la collaboration. En créant des branches pour différentes fonctionnalités,
+      j'ai pu travailler sur des parties spécifiques du code sans affecter la branche principale.
+      J'ai également appris à fusionner des branches, à résoudre les conflits de code
+      et à utiliser les pull requests pour revoir et intégrer les modifications
+      de manière structurée.
+    </p>
+
+    <p>
+      En ce qui concerne les bases de données, j'ai appris à choisir et configurer
+      une base de données relationnelle (comme MySQL) pour stocker et gérer les données
+      de manière efficace. Cela inclut la conception de schémas de base de données.
+    </p>
+
+    <p>
+      J'ai aussi acquis les compétences nécessaires pour connecter une base de données externe
+      à un projet Django, en configurant les paramètres appropriés dans le fichier
+      <code>settings.py</code>.
+    </p>
+
+    <p>
+      Enfin, j'ai appris à déployer un projet Django sur une machine virtuelle
+      en utilisant le serveur web Apache2.
+      Cela comprenait l'installation des modules nécessaires comme <code>mod_wsgi</code>,
+      la configuration des fichiers Apache pour servir l'application Django,
+      et la gestion des environnements virtuels pour isoler les dépendances du projet.
+    </p>
+
+    <p class="project-links">
+      <a href="https://github.com/boeglin-iut/sae23-drive.git" target="_blank">
+        Lien GitHub du projet
+      </a>
+    </p>
+
+  </article>
+
+</main>
+
+<footer class="footer">
+  <p>© Khaled Sabane – Portfolio Cybersécurité</p>
+</footer>
+
+</body>
+</html>

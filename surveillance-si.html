@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Surveiller un SI sécurisé</title>
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/loader.js" defer></script>
+
+</head>
+
+<body>
+  <!-- ================= LOADER ================= -->
+<div id="page-loader">
+  <div class="loader-content">
+    <span class="loader-text">LOADING</span>
+    <div class="loader-bar">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
+<header class="main-header">
+  <nav class="main-nav">
+    <span class="nav-logo">KHALED_SABANE</span>
+
+    <ul class="nav-menu">
+      <li><a href="index.html" >About me</a></li>
+      <li><a href="admin-si-securise.html">Administrer un SI sécurisé</a></li>
+      <li><a href="admin-reseaux-internet.html">Administrer les réseaux et internet</a></li>
+      <li><a href="surveillance-si.html" class="active">Surveillance SI</a></li>
+      <li><a href="dev-outils-rt.html">Créer des outils et applications informatique</a></li>
+      <li><a href="connecter-entreprises.html">Connecter les entreprises et les usagers</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container section">
+    <section class="project-block"></section>
+    <h1>R5.Cyber.11 – Supervision de la sécurité</h1>
+
+  <p>
+    Cette ressource était dédiée à la <strong>supervision avancée de la sécurité</strong>
+    à travers la mise en œuvre d’un <strong>SIEM open source (Wazuh)</strong>.
+    L’objectif était de comprendre le fonctionnement d’un SOC, depuis la collecte
+    des événements jusqu’à l’analyse et la détection d’incidents de sécurité.
+  </p>
+
+  <p>
+    Les travaux réalisés s’appuient sur des scénarios réalistes proches de ceux
+    rencontrés en environnement professionnel, avec une approche orientée
+    <strong>Blue Team</strong>.
+  </p>
+
+  <h2>Déploiement de la plateforme SIEM Wazuh</h2>
+
+  <p>
+    J’ai déployé une plateforme <strong>Wazuh complète</strong> à l’aide de
+    <strong>Docker</strong>, comprenant :
+  </p>
+
+  <ul>
+    <li>Wazuh Manager (corrélation et règles)</li>
+    <li>Wazuh Indexer (stockage et indexation des événements)</li>
+    <li>Wazuh Dashboard (visualisation et analyse)</li>
+  </ul>
+
+  <figure>
+    <img src="assets/images/wazuh-1.png" alt="Architecture Wazuh">
+    <figcaption>Architecture globale de la plateforme SIEM Wazuh</figcaption>
+  </figure>
+
+  <h2>Intégration des endpoints et collecte des logs</h2>
+
+  <p>
+    Un <strong>agent Wazuh</strong> a été installé sur une machine
+    <strong>Debian 12</strong> afin de centraliser les événements de sécurité.
+    Cette intégration permet la remontée de données essentielles pour un SOC :
+  </p>
+
+  <ul>
+    <li>Logs système et authentification</li>
+    <li>Événements SSH (succès / échecs)</li>
+    <li>Activité des services et processus</li>
+    <li>Alertes de sécurité générées par règles</li>
+  </ul>
+
+  <figure>
+    <img src="assets/images/WAZUH-2.png" alt="Agent Wazuh Debian">
+    <figcaption>Agent Wazuh connecté à un endpoint Debian</figcaption>
+  </figure>
+
+  <h2>Analyse des alertes et détection d’incidents</h2>
+
+  <p>
+    J’ai exploité les <strong>règles de corrélation Wazuh</strong> pour analyser
+    les comportements suspects et les incidents potentiels, notamment :
+  </p>
+
+  <ul>
+    <li>Tentatives de connexion SSH répétées</li>
+    <li>Élévation de privilèges</li>
+    <li>Activité anormale sur les services</li>
+    <li>Détection basée sur le référentiel <strong>MITRE ATT&CK</strong></li>
+  </ul>
+
+ 
+
+  <h2>Apports pour un contexte SOC</h2>
+
+  <p>
+    Ce module m’a permis de comprendre le rôle opérationnel d’un analyste SOC :
+  </p>
+
+  <ul>
+    <li>Surveillance continue du SI</li>
+    <li>Analyse et qualification des alertes</li>
+    <li>Corrélation d’événements multi-sources</li>
+    <li>Identification des faux positifs</li>
+    <li>Approche méthodique face aux incidents</li>
+  </ul>
+
+  <p>
+    Cette expérience a renforcé mon intérêt pour les métiers liés à la
+    <strong>supervision de sécurité, au SOC et à la Blue Team</strong>.
+  </p>
+
+  <p>
+    📄 <a href="https://drive.google.com/file/d/1ksOM2nrwwPHgiw0FXrhqWKLwSQfrRVOZ/view?usp=sharing"
+         target="_blank">
+      Accéder au rapport complet
+    </a>
+  </p>
+    </section>
+
+
+  <div class="gradient-divider"></div>
+
+  <section class="project-block">
+
+    <h1>SAE 5.03 : Assurer la sécurisation et la supervision avancées d’un système d’information</h1>
+
+    <p>
+      Cette SAÉ était dédiée à la réalisation de <strong>labs pratiques Stormshield</strong>
+      dans le cadre de la préparation à la certification
+      <strong>CSNA (Certified Stormshield Network Administrator)</strong>.
+      L’objectif était de développer une compréhension concrète et opérationnelle
+      de l’administration d’un firewall Stormshield Network Security.
+    </p>
+
+    <h2>Prise en main du firewall</h2>
+
+    <p>
+      Les premiers labs portaient sur la configuration initiale du firewall :
+      accès à l’interface d’administration, sécurisation des comptes,
+      gestion des licences, mises à jour du système et sauvegardes de configuration.
+      Cette étape m’a permis d’assimiler les bonnes pratiques d’administration
+      et de maintenance d’un pare-feu en environnement professionnel.
+    </p>
+
+    <h2>Supervision et analyse des traces</h2>
+
+    <p>
+      Une part importante de la SAÉ concernait la supervision et l’analyse des journaux.
+      J’ai travaillé sur l’exploitation des logs liés aux connexions réseau,
+      à l’authentification des utilisateurs, aux événements système et aux alertes
+      de sécurité afin d’identifier les anomalies et de faciliter le diagnostic
+      en cas d’incident.
+    </p>
+
+    <h2>Configuration réseau et filtrage</h2>
+
+    <p>
+      Les labs incluaient la configuration des interfaces réseau, du routage
+      et des services, ainsi que la mise en place de règles de filtrage.
+      J’ai travaillé sur l’ordonnancement des règles, la notion de firewall
+      <strong>stateful</strong> et la cohérence globale des politiques de sécurité.
+    </p>
+
+    <h2>NAT et accès distants</h2>
+
+    <p>
+      J’ai également réalisé des scénarios de <strong>NAT statique et dynamique</strong>,
+      ainsi que la mise en place d’accès distants sécurisés via
+      <strong>VPN IPsec</strong> et <strong>VPN SSL</strong>,
+      permettant des connexions externes tout en maintenant un niveau de sécurité élevé.
+    </p>
+
+    <h2>Apports de la SAÉ</h2>
+
+    <p>
+      Cette SAÉ m’a permis de développer des compétences pratiques en administration
+      de pare-feu Stormshield, directement exploitables en entreprise, et de consolider
+      ma préparation à la certification CSNA grâce à des cas proches de situations réelles.
+    </p>
+
+    <p>
+      <strong>Certification obtenue :</strong>
+      CSNA – Certified Stormshield Network Administrator<br>
+      <a href="https://drive.google.com/file/d/1gsKcefr9O3GdCB4mC5DcUmbgn0oF1nUM/view?usp=sharing"
+         target="_blank">
+        Lien du certificat
+      </a>
+    </p>
+
+  </section>
+
+  <div class="gradient-divider"></div>
+
+  <section class="project-block">
+
+    <h1>SAE 3.04 : Découvrir le pentesting</h1>
+
+    <h2>Sécurité offensive et résolution de challenges</h2>
+
+    <p>
+      Cette SAE reposait sur une approche orientée <strong>CTF</strong> et résolution
+      de challenges de cybersécurité, chacun correspondant à une vulnérabilité réelle.
+      L’objectif était d’explorer, apprendre et progresser sans livrable imposé.
+    </p>
+
+    <p>
+      J’ai adopté une approche progressive : débuter par les bases, puis monter
+      en complexité jusqu’à des attaques nécessitant rigueur, logique et persévérance.
+    </p>
+
+    <h2>Phase d’exploration – Parcours 1</h2>
+
+    <p>
+      Cette première phase m’a permis d’aborder des domaines variés :
+      HTML, JavaScript, protocoles réseau (FTP, TELNET, ETHERNET) ainsi que
+      des notions de forensic. Certains challenges m’ont conduit à analyser
+      du code obfusqué ou des trames réseau pour en extraire des informations sensibles.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE304-1.png" alt="Challenges CTF – Découverte">
+      <figcaption>Premiers challenges de découverte</figcaption>
+    </figure>
+
+    <h2>Monter en difficulté – Exploiter et contourner</h2>
+
+    <p>
+      J’ai ensuite travaillé sur des failles plus avancées :
+      XSS, CSRF, upload de fichiers malveillants, attaques LDAP
+      et vulnérabilités réseau. Ces challenges m’ont sensibilisé
+      aux erreurs de logique applicative et aux failles de conception.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE304-2.png" alt="Challenges avancés">
+      <figcaption>Exploitation de failles applicatives et réseau</figcaption>
+    </figure>
+
+    <h2>Cryptanalyse</h2>
+
+    <p>
+      La partie cryptanalyse a été l’une des plus enrichissantes.
+      J’ai travaillé sur du XOR, César, Vigenère, ainsi que sur des
+      empreintes MD5 et SHA1. Pour chaque challenge, j’ai développé
+      mes propres scripts Python afin de tester différentes hypothèses.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE304-3.png" alt="Challenges de cryptanalyse">
+      <figcaption>Résolution de challenges de cryptanalyse</figcaption>
+    </figure>
+
+    <h2>Ce que j’en retire</h2>
+
+    <p>
+      Cette SAE m’a appris à réfléchir comme un attaquant, à rester méthodique
+      et à documenter chaque tentative, y compris les échecs.
+      Elle a renforcé mon intérêt pour la sécurité offensive,
+      avec une approche toujours éthique et critique.
+    </p>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>© Khaled Sabane – Portfolio Cybersécurité</p>
+</footer>
+
+</body>
+</html>

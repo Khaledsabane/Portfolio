@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connecter les entreprises et les usagers</title>
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/loader.js" defer></script>
+
+</head>
+
+<body>
+<!-- ================= LOADER ================= -->
+<div id="page-loader">
+  <div class="loader-content">
+    <span class="loader-text">LOADING</span>
+    <div class="loader-bar">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="main-header">
+  <nav class="main-nav">
+    <span class="nav-logo">KHALED_SABANE</span>
+
+    <ul class="nav-menu">
+      <li><a href="index.html" >About me</a></li>
+      <li><a href="admin-si-securise.html">Administrer un SI sécurisé</a></li>
+      <li><a href="admin-reseaux-internet.html">Administrer les réseaux et internet</a></li>
+      <li><a href="surveillance-si.html">Surveillance SI</a></li>
+      <li><a href="dev-outils-rt.html">Créer des outils et applications informatique</a></li>
+      <li><a href="connecter-entreprises.html" class="active">Connecter les entreprises et les usagers</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container section">
+
+  <h1>Connecter les entreprises et les usagers</h1>
+
+  <p>
+    La compétence <strong>« Connecter les entreprises et les usagers »</strong> englobe
+    la capacité à identifier et caractériser des liaisons physiques (cuivre, fibre optique,
+    hertzienne), réaliser des mesures précises et en présenter les résultats à un client
+    ou un collègue.
+  </p>
+
+  <p>
+    Cela nécessite de savoir interpréter des documents techniques de mesures,
+    analyser des schémas ou des structures de câblage, et caractériser un support
+    de transmission à l'aide de diverses mesures telles que le retard de propagation,
+    l'atténuation, la continuité, les échos, le bruit et les perturbations.
+  </p>
+
+  <p>
+    Ces évaluations permettent de détecter d'éventuels défauts, de certifier un câblage LAN
+    et de comprendre les critères de sélection d'un support.
+  </p>
+
+  <p>
+    Cette compétence exige une solide connaissance des supports de transmission dans
+    les réseaux, des systèmes électroniques, de l'architecture des réseaux numériques,
+    ainsi que des concepts mathématiques liés aux signaux et à leur transmission.
+  </p>
+
+  <div class="gradient-divider"></div>
+
+  <!-- ================= SAE 1.03 ================= -->
+  <article class="project-block">
+    <h2>SAE 1.03 : Découvrir un dispositif de transmission</h2>
+
+    <p>
+      Dans le cadre de la SAE 1.03, j'ai eu l'opportunité de participer à un projet pratique
+      visant à assurer une couverture Wifi optimale des salles C100, C101 et C102.
+      L'objectif principal était de répondre à un cahier des charges précis en utilisant
+      des techniques et des équipements adaptés.
+    </p>
+
+    <p>
+      Nous avons commencé par réaliser le câblage nécessaire, en installant des noyaux
+      RJ45 sur les panneaux de brassage en salles C100 et C102. J'ai également fabriqué
+      des câbles RJ45 souples pour connecter les points d'accès aux panneaux de brassage.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE105-1.png" alt="Câblage RJ45 et panneaux de brassage">
+      <figcaption>Câblage RJ45 et interconnexion des baies</figcaption>
+    </figure>
+
+    <p>
+      Ensuite, nous avons mesuré la puissance PoE du switch Cisco Catalyst 2960-24PC-L,
+      en évaluant la puissance totale et par port, et en calculant la compatibilité avec
+      les points d'accès. Cette étape a été cruciale pour s'assurer que les AP pouvaient
+      être alimentés correctement.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE105-2.png" alt="Mesure PoE">
+      <figcaption>Mesure de la puissance PoE</figcaption>
+    </figure>
+
+    <p>
+      Les mesures de puissance du réseau ont révélé les performances des signaux Wifi
+      en utilisant un PC et un téléphone portable. Nous avons comparé les bandes de
+      fréquences 2.4GHz (802.11g) et 5GHz (802.11a), observant que la bande 2.4GHz
+      offrait une meilleure portée à travers les obstacles.
+    </p>
+
+    <p>
+      J'ai ensuite réalisé des heatmaps pour visualiser la qualité de réception du signal Wifi.
+      Cette analyse a mis en évidence les différences de couverture entre les normes
+      802.11g et 802.11a, démontrant l'impact des obstacles sur la bande 5GHz.
+    </p>
+
+    <figure>
+      <img src="assets/images/SAE105-3.png" alt="Heatmap Wifi">
+      <figcaption>Heatmap de couverture Wifi</figcaption>
+    </figure>
+
+    <p>
+      Pour évaluer les débits, j'ai utilisé des outils comme Speedtest, nPerf, FTP et JPERF.
+      Les résultats ont montré des variations intéressantes selon les méthodes de mesure,
+      confirmant l'importance de choisir les bons outils pour des tests précis.
+    </p>
+
+    <p>
+      J'ai également participé à la simulation réseau avec Packet Tracer, créant un schéma
+      réseau comprenant un serveur DNS, un serveur Web et un contrôleur Wifi gérant les
+      réseaux 802.11a et 802.11b/g.
+    </p>
+
+
+
+  <div class="gradient-divider"></div>
+
+  <!-- ================= SAE 22 ================= -->
+  <article class="project-block">
+    <h2>SAE 22 : Mesurer et caractériser un signal ou un système</h2>
+
+    <p>
+      Cette SAE s'est déroulée en binôme. Nous avons utilisé TINKERCAD pour développer
+      un programme d'acquisition et d'analyse de signaux audio permettant de reconnaître
+      les notes de piano par FFT (Fast Fourier Transform).
+    </p>
+
+    <p>
+      Nous avons d'abord identifié les fréquences des touches de piano, puis créé un circuit
+      pour acquérir un signal sinusoïdal. Ensuite, nous avons installé et utilisé la bibliothèque
+      arduinoFFT pour analyser ces fréquences.
+    </p>
+
+    <p>
+      Nous avons intégré des LEDs pour indiquer les notes jouées et utilisé un montage R-2R
+      pour générer des notes musicales. Pour simuler un clavier de piano, des boutons
+      poussoirs ont été configurés permettant de jouer des notes.
+    </p>
+
+    <p>
+      Enfin, nous avons combiné tous les circuits pour valider la reconnaissance des
+      séquences de notes et l'allumage des LEDs correspondantes. Ce projet nous a permis
+      de développer des compétences en programmation Arduino, traitement de signaux audio
+      et création de circuits électroniques dans TINKERCAD.
+    </p>
+
+    <ul>
+      <li>
+        <a href="https://www.tinkercad.com/things/if8t2CWd27y-validation-v2" target="_blank">
+          Lien du circuit de touche piano
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tinkercad.com/things/iLEE3ouQDOA-v3" target="_blank">
+          Lien du circuit bouton et LED
+        </a>
+      </li>
+    </ul>
+  </article>
+
+  <div class="gradient-divider"></div>
+
+
+
+<article class="project-block">
+  <h2>SAE 3.01_FA – Mettre en œuvre un système de transmission</h2>
+
+  <p>
+    Dans cette SAE, notre objectif était de concevoir une prise électrique connectée en Wifi,
+    capable d’être commandée via une interface web, une application Android, ou manuellement
+    via un bouton physique.
+  </p>
+
+  <p>
+    Le projet devait inclure une carte électronique fonctionnelle, une connexion à un réseau WiFi,
+    l’intégration d’un serveur web sur Raspberry Pi, et l’utilisation du protocole
+    <strong>MQTT</strong> pour la communication.
+  </p>
+
+  <p>
+    Le travail a été réalisé en groupe de 5. Pour ma part, j’ai principalement contribué à
+    la conception matérielle de la carte, à la configuration du module ESP8266, ainsi qu’à
+    l'intégration et au test du serveur web et du système MQTT.
+  </p>
+
+  <h3>Conception électronique</h3>
+
+  <p>
+    Nous avons d’abord défini les composants principaux nécessaires au bon fonctionnement
+    de la prise :
+  </p>
+
+  <ul>
+    <li><strong>ESP8266</strong> : microcontrôleur avec Wifi intégré, pour la commande à distance (via MQTT)</li>
+    <li><strong>Relais</strong> : permet de commuter une charge électrique (prise ON/OFF)</li>
+    <li><strong>LED</strong> : indique l’état de la prise</li>
+    <li><strong>Bouton poussoir</strong> : permet une commande manuelle</li>
+    <li><strong>Capteur de température (DS18B20)</strong> : pour obtenir des informations d’ambiance</li>
+  </ul>
+
+  <figure>
+    <img src="assets/images/SAE301-1.png" alt="Schéma électronique EasyEDA">
+    <figcaption>Conception du schéma électronique sous EasyEDA</figcaption>
+  </figure>
+
+  <figure>
+    <img src="assets/images/SAE301-2.png" alt="Estimation du coût">
+    <figcaption>Estimation du coût des composants</figcaption>
+  </figure>
+
+  <h3>Conception mécanique et contraintes physiques</h3>
+
+  <ul>
+    <li>Taille de la carte : 75 mm x 50 mm pour s’insérer dans un boîtier standard</li>
+    <li>Taille de la prise : estimée à 7.9 cm x 7.9 cm</li>
+    <li>Poids total : environ 60 g</li>
+    <li>Consommation électrique : optimisée à ~500 mW en fonctionnement normal</li>
+  </ul>
+
+  <h3>Programmation du microcontrôleur (ESP8266)</h3>
+
+  <p>
+    L’ESP8266 a été programmé à l’aide de l’IDE Arduino. Pour assurer la communication
+    avec le serveur, nous avons utilisé la bibliothèque <strong>PubSubClient</strong>,
+    permettant l’échange de messages via le protocole MQTT.
+  </p>
+
+  <p>
+    Afin de simplifier la connexion initiale au réseau Wifi, nous avons intégré la bibliothèque
+    <strong>WiFiManager</strong>, permettant à la prise de se mettre temporairement en mode
+    point d’accès (AP), avant de basculer en mode client (STA).
+  </p>
+
+  <p>
+    Une logique de commande du relais via transistor a été mise en place, avec calcul des
+    résistances nécessaires pour garantir un fonctionnement sûr et stable.
+  </p>
+
+  <h3>Serveur Web et application Android</h3>
+
+  <p>
+    Nous avons installé un serveur web sur un Raspberry Pi permettant de contrôler deux
+    prises en mode ON ou OFF, d’afficher leur état en temps réel via LED, et d’ajouter
+    une commande globale.
+  </p>
+
+  <p>
+    L’application Android développée reproduisait exactement les mêmes fonctionnalités
+    que la page web et utilisait également le protocole MQTT.
+  </p>
+
+  <figure>
+    <img src="assets/images/SAE301-3.png" alt="Application Android">
+    <figcaption>Interface Android de contrôle des prises</figcaption>
+  </figure>
+
+  <h3>Sécurité et connectivité</h3>
+
+  <p>
+    L’accès à la page web a été sécurisé par identifiant et mot de passe.
+    Lors de la première utilisation, le système entre automatiquement en mode
+    point d’accès (AP) pour configurer le réseau Wifi, avant de fonctionner
+    normalement en mode client (STA).
+  </p>
+
+  <p>
+    Un broker MQTT privé a été installé localement sur le Raspberry Pi, servant
+    d’intermédiaire entre les interfaces utilisateur et le microcontrôleur ESP8266.
+  </p>
+</article>
+
+<div class="gradient-divider"></div>
+
+<article class="project-block">
+  <h2>SAE 5.01 – Concevoir, réaliser et présenter une solution technique</h2>
+  <h3>Traçage de véhicule GNSS via LoRaWAN</h3>
+
+  <h4>Contexte académique</h4>
+
+  <p>
+    Ce projet a été réalisé dans le cadre de la SAE 5.01. L’objectif était de concevoir
+    et mettre en œuvre une solution de traçage de véhicule reposant sur la géolocalisation
+    GNSS et la transmission des données via le réseau LoRaWAN de The Things Network (TTN),
+    avec une approche orientée systèmes embarqués et faible consommation.
+  </p>
+
+  <h4>Architecture générale de la solution</h4>
+
+  <p>
+    La solution repose sur un end-device embarqué basé sur un module Pycom
+    (FiPy/LoPy associé à une carte Pytrack), chargé de collecter les coordonnées GNSS
+    et de les transmettre via LoRaWAN.
+  </p>
+
+  <p>
+    Les données transitent par une gateway TTIG vers TTN, puis sont exploitées côté
+    serveur à l’aide d’un broker MQTT et de Node-RED pour la visualisation sur une
+    interface web cartographique.
+  </p>
+
+
+
+  <h4>Acquisition GNSS et traitement des données</h4>
+
+  <p>
+    Le module GNSS embarqué permet l’acquisition des coordonnées de latitude et longitude.
+    Les données sont traitées côté end-device avec un formatage adapté aux contraintes
+    du réseau LoRaWAN.
+  </p>
+
+  <p>
+    Une version optimisée du payload a été mise en place afin de réduire la taille
+    des trames transmises.
+  </p>
+
+  <h4>Communication LoRaWAN et intégration TTN</h4>
+
+  <p>
+    Une application TTN a été configurée pour recevoir les messages uplink, avec
+    l’utilisation de payload formatters pour convertir les données en format JSON
+    exploitable côté serveur.
+  </p>
+
+  <h4>Visualisation et exploitation des données</h4>
+
+  <p>
+    Les messages LoRaWAN sont récupérés via MQTT et traités dans Node-RED.
+    Une interface web permet la visualisation en temps réel de la position du
+    véhicule sur une carte.
+  </p>
+
+
+
+  <h4>Gestion de l’énergie et faible consommation</h4>
+
+  <p>
+    Le end-device fonctionne par défaut en mode basse consommation et n’active
+    le GNSS et la communication LoRaWAN que lors de la détection d’un mouvement,
+    grâce à l’accéléromètre et au mode deep sleep.
+  </p>
+
+  <h4>Interaction utilisateur et notifications</h4>
+
+  <p>
+    Le système permet à l’utilisateur d’interagir à distance pour arrêter le suivi
+    ou repasser le dispositif en veille. Des notifications informent l’utilisateur
+    lors du déplacement du véhicule.
+  </p>
+
+  <h4>Compétences mobilisées</h4>
+
+  <ul>
+    <li>LoRaWAN et The Things Network (TTN)</li>
+    <li>Systèmes embarqués (Pycom, Pytrack)</li>
+    <li>GNSS et géolocalisation</li>
+    <li>MQTT et Node-RED</li>
+    <li>Optimisation de payload et faible consommation</li>
+    <li>Architecture IoT bout en bout</li>
+  </ul>
+</article>
+
+
+</main>
+
+<footer class="footer">
+  <p>© Khaled Sabane – Portfolio Cybersécurité</p>
+</footer>
+
+</body>
+</html>

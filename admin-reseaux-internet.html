@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SAE 3.03 – Réseaux & Internet</title>
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/loader.js" defer></script>
+
+</head>
+
+<body>
+  <!-- ================= LOADER ================= -->
+<div id="page-loader">
+  <div class="loader-content">
+    <span class="loader-text">LOADING</span>
+    <div class="loader-bar">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ================= NAVBAR ================= -->
+<header class="main-header">
+  <nav class="main-nav">
+    <span class="nav-logo">KHALED_SABANE</span>
+
+    <ul class="nav-menu">
+      <li><a href="index.html" >About me</a></li>
+      <li><a href="admin-si-securise.html">Administrer un SI sécurisé</a></li>
+      <li><a href="admin-reseaux-internet.html" class="active">Administrer les réseaux et internet</a></li>
+      <li><a href="surveillance-si.html">Surveillance SI</a></li>
+      <li><a href="dev-outils-rt.html">Créer des outils et applications informatique</a></li>
+      <li><a href="connecter-entreprises.html">Connecter les entreprises et les usagers</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container section">
+
+  <h1>SAE 3.03 : Concevoir un réseau informatique sécurisé multi-sites</h1>
+
+  <p>
+    Dans le cadre de cette SAE, l’objectif était de concevoir et configurer une infrastructure
+    réseau complète pour deux entreprises fictives, <strong>UC Exchange</strong> et
+    <strong>ABC Conseil</strong>, ayant des sites à Strasbourg, Metz et Nancy.
+    Le réseau devait être fiable, évolutif, et permettre la communication entre les différents
+    sites tout en assurant la sécurité et la haute disponibilité.
+  </p>
+
+  <p>
+    Le projet était divisé en trois grandes parties :
+  </p>
+
+  <ul>
+    <li>L’administration des réseaux locaux (LAN)</li>
+    <li>La mise en œuvre des services réseau (DNS, Web, Mail, AD)</li>
+    <li>L’interconnexion des sites via un réseau opérateur</li>
+  </ul>
+
+  <p>
+    J’ai travaillé en équipe avec deux autres étudiants. Pour ma part, j’étais en charge
+    de la partie <strong>LAN</strong>, ce qui m’a permis de gérer l’intégralité de
+    l’architecture réseau locale de chaque site.
+  </p>
+
+  <h2>Conception de l’architecture LAN</h2>
+
+  <p>
+    J’ai choisi une architecture en <strong>Two-Tier Layer</strong>, plus adaptée à la taille
+    des entreprises. Ce modèle repose sur une hiérarchie simple entre la couche d’accès
+    (pour les utilisateurs) et la couche de distribution.
+  </p>
+
+  <ul>
+    <li>Une meilleure gestion du trafic</li>
+    <li>Une maintenance simplifiée</li>
+    <li>Une bonne évolutivité si l’entreprise s’agrandit</li>
+  </ul>
+
+  <!-- Image architecture LAN -->
+  <figure>
+    <img src="assets/images/sae303-architecture-lan.png"
+         alt="Architecture LAN multi-sites">
+    <figcaption>Architecture LAN – UC Exchange</figcaption>
+  </figure>
+
+
+
+  <h2>Segmentation du réseau</h2>
+
+  <p>J’ai créé <strong>4 VLANs par site</strong>, correspondant à chaque service :</p>
+
+  <ul>
+    <li><strong>VLAN 10</strong> : Service informatique</li>
+    <li><strong>VLAN 20</strong> : Direction</li>
+    <li><strong>VLAN 30</strong> : Service financier</li>
+    <li><strong>VLAN 40</strong> : Salle des serveurs</li>
+  </ul>
+
+  <p>
+    Chaque VLAN a reçu un sous-réseau IP distinct, calculé à partir de la plage globale
+    fournie. J’ai choisi une découpe en <strong>/29 ou /28</strong> selon le nombre d’hôtes requis,
+    afin d’optimiser l’espace d’adressage.
+  </p>
+
+
+
+  <h2>Routage inter-VLAN et MSTP</h2>
+
+  <p>
+    Le routage inter-VLAN a été mis en place via un <strong>switch de niveau 3</strong>.
+    Chaque VLAN dispose de sa passerelle, assurant la communication entre services.
+  </p>
+
+  <p>
+    Pour éviter les boucles réseau dues aux liens redondants, j’ai configuré le
+    protocole <strong>MSTP</strong> :
+  </p>
+
+  <ul>
+    <li>Définition d’un domaine MST commun</li>
+    <li>Répartition des VLANs sur deux instances</li>
+    <li>Attribution des rôles Root Bridge primaire et secondaire</li>
+  </ul>
+
+  <!-- Image configuration MSTP -->
+  <figure>
+    <img src="assets/images/mstp.png"
+         alt="Configuration MSTP">
+    <figcaption>Configuration MSTP</figcaption>
+  </figure>
+
+
+  <h2>Haute disponibilité avec VRRP</h2>
+
+  <p>
+    Le protocole <strong>VRRP</strong> a été déployé sur les routeurs R2 et R3 afin
+    d’assurer la continuité de service. Des tests de coupure ont confirmé
+    le basculement automatique.
+  </p>
+
+  <!-- Images VRRP -->
+  <figure>
+    <img src="assets/images/R2.png" alt="VRRP R2">
+    <figcaption>État VRRP – Routeur R2</figcaption>
+  </figure>
+
+  <figure>
+    <img src="assets/images/R3.png" alt="VRRP R3">
+    <figcaption>État VRRP – Routeur R3</figcaption>
+  </figure>
+
+
+  <h2>Configuration du DHCP et du NAT</h2>
+
+  <p>
+    Un serveur DHCP a été installé sous Linux (ligne de commande uniquement) dans le VLAN serveur. Il attribue automatiquement les adresses IP aux machines des VLANs grâce à l’utilisation de l’IP helper-address sur les interfaces VLAN du switch.
+
+Pour permettre aux machines d’accéder à l’extérieur, j’ai configuré un PAT (Port Address Translation) sur le routeur CE1. Cela permet à toutes les machines privées de sortir sur Internet via une seule adresse publique, en différenciant les connexions avec les ports.
+  </p>
+
+  <p>
+    Pour l’accès Internet, un <strong>PAT</strong> a été configuré sur le routeur CE1,
+    permettant aux machines privées de sortir via une adresse publique unique.
+  </p>
+
+  <!-- Image NAT -->
+  <figure>
+    <img src="assets/images/nat.png"
+         alt="Traduction NAT">
+    <figcaption>Table de traduction NAT</figcaption>
+  </figure>
+
+
+
+  <p>
+    
+    <a href="https://drive.google.com/file/d/1u-RsYIIjPBxyCqaPaKr5g4QnMSDx7CDw/view?usp=sharing" target="_blank">Contenu du rapport</a>
+  </p>
+
+<div class="gradient-divider"></div>
+
+
+<h1>SAE 21 : Construire un réseau informatique pour une petite structure</h1>
+
+<p>
+  Grâce à cette SAE, j'ai acquis la capacité de construire un réseau local
+  avec des commutateurs et des routeurs, ainsi que de mettre en place des
+  règles de sécurité simples, en utilisant le logiciel <strong>GNS3</strong>.
+</p>
+
+<p>
+  J'ai segmenté le réseau local en créant trois VLAN pour différents groupes
+  d’utilisateurs :
+</p>
+
+<ul>
+  <li><strong>VLAN 100</strong> : Administration</li>
+  <li><strong>VLAN 200</strong> : Développeurs</li>
+  <li><strong>VLAN 300</strong> : Administrateurs</li>
+</ul>
+
+<p>
+  J’ai également réalisé une segmentation en sous-réseaux spécifiques pour
+  différents usages : administration, utilisateur, administrateur,
+  production et interconnexion.
+</p>
+
+<!-- Image topologie réseau -->
+<figure>
+  <img src="assets/images/sae21-topologie-reseau.png"
+       alt="Topologie réseau SAE 21">
+  <figcaption>Topologie réseau – segmentation VLAN et interconnexion</figcaption>
+</figure>
+
+
+
+<h2>Gestion des VLAN et routage</h2>
+
+<p>
+  Pour la gestion des VLAN, j'ai configuré le routage inter-VLAN sur le
+  commutateur <strong>Switch-2</strong>, avec un équilibrage de charge entre
+  Switch-1 et Switch-2 via le protocole <strong>Spanning Tree</strong>.
+</p>
+
+<p>
+  Le protocole <strong>DHCP</strong> a été activé sur Switch-2 afin de
+  configurer automatiquement les postes clients des VLAN.
+</p>
+
+<p>
+  Les interconnexions des équipements de niveau 3 ont été réalisées en
+  utilisant le protocole <strong>RIP v2</strong>, avec des adresses de
+  liaison en <strong>/30</strong>.
+</p>
+
+
+
+<h2>Mise en place des services</h2>
+
+<p>
+  J’ai déployé un service <strong>FTP</strong> sur le serveur de sauvegarde,
+  avec un accès anonyme et des permissions spécifiques pour deux utilisateurs
+  nommés <strong>Antoine</strong> et <strong>Élise</strong>.
+</p>
+
+<p>
+  J’ai également installé le service <strong>Apache</strong> sur les serveurs
+  de développement et de production. Les pages web ont été synchronisées via
+  <strong>rsync</strong> afin de garantir la cohérence des contenus entre les
+  environnements.
+</p>
+
+
+
+<h2>Sécurisation du réseau</h2>
+
+<p>
+  Pour renforcer la sécurité des commutateurs, j’ai mis en place la
+  <strong>sécurité des ports</strong>, autorisant uniquement la première
+  machine connectée sur chaque port.
+</p>
+
+<p>
+  Des <strong>ACL</strong> ont été configurées sur le routeur R2 afin de
+  limiter le trafic aux ports <strong>HTTP (80)</strong>,
+  <strong>SSH (22)</strong> et <strong>rsync (873)</strong>.
+</p>
+
+<p>
+  Sur le routeur de bordure, j’ai configuré des ACL autorisant uniquement
+  le trafic <strong>ICMP</strong> et <strong>HTTP</strong> provenant de
+  l’extérieur, avec une surcharge <strong>NAT</strong> appliquée au
+  VLAN administration.
+</p>
+<div class="gradient-divider"></div>
+
+
+<article class="project-block">
+
+  <h1>SAE 12 – S’initier aux réseaux informatiques</h3>
+
+  <p>
+    Dans le cadre de mon parcours de formation, j'ai eu l'opportunité de travailler
+    sur le module <strong>SAE 1.02</strong> qui m'a permis de développer des compétences
+    en réseaux informatiques. Ce module avait pour objectif de me familiariser avec
+    la configuration et la gestion des équipements réseau, ainsi que la mise en place
+    et le test de services réseau de base.
+  </p>
+
+  <h4>Prise en main de l’environnement EVE-NG</h4>
+
+  <p>
+    Pour commencer, j'ai pris en main l'environnement de simulation <strong>EVE-NG</strong>,
+    qui m'a permis de configurer et de tester virtuellement les équipements réseau.
+    Cet outil est essentiel pour simuler un réseau complet sans avoir besoin
+    d'équipements physiques.
+  </p>
+
+  <figure class="image-block">
+    <img src="assets/images/sae12-1.png"
+         alt="Topologie réseau sous EVE-NG">
+    <figcaption>Simulation réseau réalisée sous EVE-NG</figcaption>
+  </figure>
+
+  <p>
+    J'ai configuré les commutateurs <strong>Cisco 2960</strong> et les routeurs de la
+    série <strong>2800</strong>. La configuration incluait l'interconnexion des
+    équipements dans EVE-NG et la mise en place des bases du réseau.
+  </p>
+
+  <p>
+    J'ai défini l’adressage IP et segmenté le réseau en plusieurs VLANs :
+    <strong>VLAN Direction</strong>, <strong>Utilisateurs</strong>,
+    <strong>Serveurs</strong> et <strong>Administrateur</strong>.
+    Chaque VLAN disposait d’un sous-réseau dédié afin d’optimiser la gestion
+    et la sécurité du réseau.
+  </p>
+<figure class="image-block">
+  <img src="assets/images/SAE12-2.png"
+       alt="Table d’adressage VLAN (Direction, Utilisateurs, Serveurs, Administrateur)">
+  <figcaption>Table d’adressage IP et segmentation VLAN</figcaption>
+</figure>
+
+
+  <p>
+    J'ai configuré un serveur <strong>DHCP</strong> pour distribuer des adresses IP
+    dynamiques. Ce service était crucial pour assurer que tous les appareils du réseau
+    recevaient automatiquement une configuration IP valide.
+  </p>
+
+</article>
+
+
+</main>
+
+<footer class="footer">
+  <p>© Khaled Sabane – Portfolio Cybersécurité</p>
+</footer>
+
+</body>
+</html>
